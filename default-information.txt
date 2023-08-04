@@ -1,8 +1,0 @@
-Raspberry ip 192.168.99.99
-Raspberry ip gora 192.168.99.121
-
-username “pi” and the default password “raspberry”
-
-Wchodzene w ustawienia sieci sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-
-Do sprawdzanai podpiętych użądzeń na linuxsie polecenie nmap -sP *ip geteaway*/24
