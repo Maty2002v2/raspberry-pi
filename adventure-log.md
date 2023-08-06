@@ -22,7 +22,7 @@
  ### Rozeznanie po posiadanych modułach, przekaźnikach i dostosowanie lapka
 
 
-## 3 day |04/06/23 - 3h [19:30-22:30] 
+## 3 day | 04/06/23 - 3h [19:30-22:30] 
   ### Updated system  
   - 
     ```bash
@@ -156,3 +156,44 @@
   mysql --user=mysql_user -p
   ```
   *(Login with our user login and -p flag (p is short from password, in the next step we enter our password))*
+
+## 4 day | 05/08/23 [14:00-16:00]
+  ### Radio transmitter FM with RDS
+  - Mounted "cable" to pin 4 gipo 
+  - #### Download the packages to handling mp3 files
+    - 
+      ```bas
+      sudo apt-get install sox libsox-fmt-all
+      sudo apt-get install libsox-fmt-mp3
+      sudo apt-get install libsndfile1-dev
+  - #### Clone github repository
+    - 
+      ```bash
+      git clone https://github.com/ChristopheJacquet/PiFmRds.git
+      ```
+  - #### Compile program
+    - 
+      ```bash
+      cd PiFmRds/src 
+      make clean 
+      make
+      ```
+  - #### First run program
+    - 
+      ```bash      	
+      sudo ./pi_fm_rds -audio sound.wav
+      ```
+      *(We have to be in PiFmRds/src, default frequency FM is 107,9)*
+
+  *If an default frequency is a busy we need to cheng it for other*
+
+  - 
+      ```bash
+      sudo ./pi_fm_rds -audio sound.wav -freq 88.1
+      ```
+  - Play custom file mp3
+
+    ```bash
+    sox -t mp3 /home/pi/PiFmRds/muzyka/demo.mp3 -t wav - | sudo /home/pi/PiFmRds/src/pi_fm_rds -freq 88.1 -audio -
+    ```
+    *(Create file on raspberry to path /home/pi/PiFmRds/muzyka/demo.mp3)*
